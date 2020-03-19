@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+// import "./App.css";
 import axios from "axios"
+import styled from "styled-components"
 import Header from "./components/Header"
 import ImageContainer from "./components/ImageContainer"
 import BottomContent from "./components/BottomContent"
-
-
 
 function App() {
   const [data, setData] = useState({})
@@ -20,12 +19,24 @@ function App() {
       })
   }, [])
 
+  const AppContainer = styled.div`
+    box-sizing: border-box;
+    text-align: center;
+    margin: 2% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 4px solid black;
+    border-radius: 10px;
+    padding: 5%;
+  `
+
   return (
-    <div className="App">
+    <AppContainer >
       <Header text={"NASA is very cool, but not as cool as SpaceX!"}/>
       <ImageContainer image={data.url} title={data.title}/>
       <BottomContent explanation={data.explanation}/>
-    </div>
+    </AppContainer>
   );
 }
 
